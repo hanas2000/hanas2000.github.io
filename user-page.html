@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    
+    <!-- Main css -->
+    <link rel="stylesheet" href="css/user.css">
+</head>
+<body class="bg">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+            <a class="navbar-brand" href="#">Rentik</a>
+ 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#x" >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="x">
+                <ul class="navbar-nav justify-content-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Main menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">User page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class = "main">
+                <div class = "first-block row">
+                    <div class = "photo col-xs-12 col-md-4 col-sm-4">
+                        <img src = "images/images.png"/>
+                    </div>
+                    <div class="user-info container col-xs-12 col-sm-8 col-md-8">
+                        <h2 class="name-surname">Yura Khanas</h2>
+                        <div class="row">
+                                <h4 class="col-6">№ passport</h4>
+                                <h4 class="col-6 db-info password">ht1426hd98</h4>
+
+                                <h4 class="col-6">№ driver licence</h4>
+                                <h4 class="col-6 db-info driver-licence">ht1426hd98</h4>
+
+                                <h4 class="col-6">E-mail</h4>
+                                <h4 class="col-6 db-info e-mail">yura @gmail. com</h4>
+
+                                <h4 class="col-6">Date Of Birth.</h4>
+                                <h4 class="col-6 db-info date-of-birth">22.12.2000</h4>
+
+                                <h4 class="col-6">Nationality</h4>
+                                <h4 class="col-6 db-info nationality">Ukrainian</h4>
+
+                                <h4 class="col-6">City</h4>
+                                <h4 class="col-6 db-info city">Lviv</h4>
+
+                                <h4 class="col-6">Credit card</h4>
+                                <h4 class="col-6 db-info city">2574 8957 4984 5898</h4>
+
+                                <h4 class="col-6">Rented car</h4>
+                                <h4 class="col-6 db-info city">Audi Q7</h4>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block edit" onclick="edit_user()">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark navbar-dark">
+        <div class="container-fluid">
+            <ul class="footer_nav">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Privacy policy</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+            <p>&copy; All rights reserved</p>
+        </div>
+    </footer>
+
+<div id="fill">
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-lg-4 col-md-3 col-sm-2 col-xs-12"></div>
+            <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+                <form class="form-container">
+                    <div class="exit">
+                        <button type="submit" class="btn btn-primary" onclick="close_edit_user()" >✖</button>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="inputPassport" placeholder="Passport">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="inputDriverLicence" placeholder="Driver Licence">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="inputDateOfBirthday" placeholder="Date of birthday">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="inputNationality" placeholder="Nationality">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="inputCity" placeholder="City">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Repeat password">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Save</button>
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-3 col-sm-2 col-xs-12"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function edit_user()
+        {
+           document.getElementById("fill").style.display = "block";    
+        }
+        function change_edit_user()
+        {
+           document.getElementById("fill").style.display = "none";    
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

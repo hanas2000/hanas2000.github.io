@@ -1,0 +1,48 @@
+html, .bg{
+    background: url("../images/login-car.jpg") no-repeat;
+    min-height: 100vh;
+    background-size: cover;
+    padding-bottom: 0px;
+}
+
+.form-container{
+    border: 1px sold #fff;
+    padding: 50px 60px;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+    box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+    font-family: Poppins;
+    border-radius: 10px;
+}
+
+.row{
+    height: 100hv;
+}
+
+h2 { 
+    text-align: center;
+    font-weight: bold; 
+    color: #222;
+    font-size: 36px;
+}
+
+.link {
+
+    span{
+      color: white;
+    }
+
+    .signup-link {
+        color: white;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    font-family: Poppins;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #222;
+    font-weight: bold; 
+    position: relative;
+    text-align: center;
+}

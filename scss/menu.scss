@@ -1,0 +1,361 @@
+body{
+    background-color: #666666;
+}
+.rentik{
+    color: #11D8C3;
+}
+.main{
+    width:100%;
+    background: url("../images/login-car.jpg") no-repeat;
+    height: 100vh;
+    background-size: cover;
+}
+
+.heading-rentik{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 40px;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.main-block{
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding-bottom: 5vh;
+    margin: 0 5vh 5vh 5vh;
+    background-color: #d8d8d8;
+}
+
+.first-block{
+    padding: 20px;
+    border: none;
+}
+.second-block{
+    padding: 20px;
+}
+.third-block{
+    padding: 20px;
+    border: none;
+}
+
+.home {
+    .heading {
+        text-align: center;
+        margin-top: 3rem;
+        font-size : 2rem;
+
+        &--color {
+            color: teal;
+        }
+    }
+}
+
+.container-fluid{
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.block{
+    box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-left: 5vh;
+    margin-right: 5vh;
+    background-color: #343a40;
+}
+
+.frame{
+    background-color: #343a40;
+    border-radius: 50px;
+    box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.75);
+    overflow: hidden;
+}
+
+.card {
+    background-color: rgba(0,0,0,0);
+    position: relative;
+    min-height: 50vh;
+    justify-content: center;
+    
+    .heading {
+        text-align: center;
+        font-size: 1rem;
+        color: white;
+    }
+
+    .description {
+        text-align: center;
+        color: #8C8889;
+        font-size: 1.1rem;
+        line-height: 1.4;
+    }
+}
+
+
+.find-car {
+    background-color: #d8d8d8;
+    border-radius: 50px;
+    padding: 5vh;
+    margin: 5vh;
+
+    .heading-find {
+        padding-top:2rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color:white;
+    }
+
+    .description-find {
+      justify-content: center;
+        color      : #8C8889;
+        font-size  : 1.5rem;
+        text-align : center;
+    }
+
+    .rent{
+        position: relative;
+        bottom:0;
+    }
+}
+
+footer {
+    position:relative;
+    left:0px;
+    bottom:-25px;
+    width:100%;
+    flex: 0 0 auto;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+
+    .footer_nav {
+        list-style-type:none;
+        padding: 0;
+        margin:0;
+
+        li {
+            display: inline-block;
+            padding: 0 10px;
+            border-right: 1px solid #4b4b4b;
+
+            &:last-child {
+                border-right:0;
+            }
+
+            a {
+                color: rgba(255,255,255,.5);
+
+                &:hover {
+                    color: darken(#4b4b4b,30%);
+                }
+            }
+        }
+    }
+
+    p {
+        margin: 0;
+        color: rgba(255,255,255,.5);
+    }
+}
+
+//Scroll
+
+@import url(https://fonts.googleapis.com/css?family=Cabin);
+
+$colorBg: #222a30;
+$colorOutline: #ffffff;
+$colorOutlineFade: #4e5559;
+
+$widthMouse: 30px;
+$heightMouse: 40px;
+$borderMouse: 6px;
+
+$posMouse: 8px;
+$posText: 2px;
+
+$sizeTrackball: 10px;
+$posTrackball: 20px;
+$shrinkTrackball: 0.4;
+
+$animDuration: 5s;
+
+@mixin bgGradient {
+  background:
+    $colorOutlineFade
+    linear-gradient(
+      transparent 0%,
+      transparent 50%,
+      $colorOutline 50%,
+      $colorOutline 100%
+    );
+}
+
+
+h3 {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: "Cabin", sans-serif;
+  letter-spacing: 12px;
+  text-indent: 12px;
+  color: $colorOutline;
+  animation: 
+    colorText $animDuration ease-out infinite,
+    nudgeText $animDuration ease-out infinite;
+}
+
+.mouse {
+  @include bgGradient;
+  position: relative;
+  width: $widthMouse;
+  height: $heightMouse;
+  border-radius: 100px;
+  background-size: 100% 200%;
+  animation: 
+    colorSlide $animDuration linear infinite;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: auto;
+  }
+  &:before {
+    width: $widthMouse - $borderMouse;
+    height: $heightMouse - $borderMouse;
+    background-color: $colorBg;
+    border-radius: 100px;
+  }
+  &:after {
+    background-color: $colorOutline;
+    width: $sizeTrackball;
+    height: $sizeTrackball;
+    border-radius: 100%;
+    animation: trackBallSlide $animDuration linear infinite;
+  }
+}
+
+@keyframes colorSlide { 
+  0% { background-position: 0% 100%; }
+  20% { background-position: 0% 0%; }
+  21% { background-color: $colorOutlineFade; }
+  29.99% { 
+    background-color: $colorOutline;
+    background-position: 0% 0%;
+  }
+  30% { 
+    background-color: $colorOutlineFade;
+    background-position: 0% 100%;
+  }
+  50% { background-position: 0% 0%; }
+  51% { background-color: $colorOutlineFade; }
+  59% { 
+    background-color: $colorOutline;
+    background-position: 0% 0%;
+  }
+  60% { 
+    background-color: $colorOutlineFade;
+    background-position: 0% 100%;
+  }
+  80% { background-position: 0% 0%; }
+  81% { background-color: $colorOutlineFade; }
+  90%, 100% { background-color: $colorOutline; }
+}
+
+@keyframes trackBallSlide {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  6% { 
+    opacity: 1;
+    transform: scale(0.9) translateY($posTrackball/4);
+  }
+  14% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY($posTrackball*2);
+  }
+  15%, 19% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY(-$posTrackball);
+  }
+  28%, 29.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  36% { 
+    opacity: 1;
+    transform: scale(0.9) translateY($posTrackball/4);
+  }
+  44% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY($posTrackball*2);
+  }
+  45%, 49% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY(-$posTrackball);
+  }
+  58%, 59.99% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+  66% { 
+    opacity: 1;
+    transform: scale(0.9) translateY($posTrackball/4);
+  }
+  74% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY($posTrackball*2);
+  }
+  75%, 79% {
+    opacity: 0;
+    transform: scale($shrinkTrackball) translateY(-$posTrackball);
+  }
+  88%, 100% {
+    opacity: 1;
+    transform: scale(1) translateY(-$posTrackball);
+  }
+}
+
+@keyframes nudgeMouse {
+  0% { transform: translateY(0); }
+  20% { transform: translateY($posMouse); }
+  30% { transform: translateY(0); }
+  50% { transform: translateY($posMouse); }
+  60% { transform: translateY(0); }
+  80% { transform: translateY($posMouse); }
+  90% { transform: translateY(0)}; 
+}
+
+@keyframes nudgeText {
+  0% { transform: translateY(0); }
+  20% { transform: translateY($posText); }
+  30% { transform: translateY(0); }
+  50% { transform: translateY($posText); }
+  60% { transform: translateY(0); }
+  80% { transform: translateY($posText); }
+  90% { transform: translateY(0); }
+}
+
+@keyframes colorText { 
+  21% { color: $colorOutlineFade; }
+  30% { color: $colorOutline; }
+  51% { color: $colorOutlineFade; }
+  60% { color: $colorOutline; }
+  81% { color: $colorOutlineFade; }
+  90% { color: $colorOutline; }
+}
