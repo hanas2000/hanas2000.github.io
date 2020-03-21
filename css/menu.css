@@ -8,18 +8,21 @@ body {
 }
 
 .main {
+  display: flex;
   width: 100%;
   background: url("../images/login-car.jpg") no-repeat;
   height: 100vh;
   background-size: cover;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .heading-rentik {
   position: absolute;
   top: 50%;
-  left: 50%;
+  text-align: center;
   font-size: 40px;
-  transform: translate(-50%, -50%);
   color: white;
 }
 
@@ -154,8 +157,7 @@ footer p {
 
 h3 {
   position: absolute;
-  top: 90%;
-  left: 50%;
+  top: 40%;
   transform: translate(-50%, -50%);
   font-family: "Cabin", sans-serif;
   letter-spacing: 12px;
