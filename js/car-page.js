@@ -109,6 +109,10 @@ function createDiv(obj) {
         i++;
     }
 
+    var price = document.createElement('h4');
+    price.setAttribute('class', 'price');
+    price.setAttribute('id', 'price-' + obj.id);
+
     var button = document.createElement('button');
     button.setAttribute('class', 'btn btn-success btn-block rent');
     button.setAttribute('type', 'submit');
@@ -120,6 +124,7 @@ function createDiv(obj) {
     infoDiv.appendChild(test);
     infoDiv.appendChild(featureTitle);
     infoDiv.appendChild(ul);
+    infoDiv.appendChild(price);
     infoDiv.appendChild(button);
 
     container.appendChild(imgDiv);
@@ -133,6 +138,7 @@ function createDiv(obj) {
         i++;
     }
     document.getElementById('text' + obj.id).innerText = obj.content;
+    document.getElementById('price-' + obj.id).innerHTML = "Price per day: " + obj.price;
     document.getElementById('car-name' + obj.id).innerHTML = obj.name;
     document.getElementById('btn' + obj.id).innerText = "RENT CAR";
     document.getElementById('feature' + obj.id).innerHTML = 'Features:';
