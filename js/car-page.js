@@ -30,6 +30,14 @@ function searchCar() {
     var fields = document.getElementById("fields-empty");
 
     if (pickUpPlace != "" && pickUpTime != "" && dropOffTime != "" && dropOffPlace != "") {
+        var birthdayformat = /^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/;
+        if (!pickUpTime.value.match(birthdayformat)) {
+            pickUpTime = pickUpTime.getFullYear() + '-' + (pickUpTime.getMonth()+1) + '-' + pickUpTime.getDate()
+        }
+        if (!dropOffTime.value.match(birthdayformat)) {
+            dropOffTime = dropOffTime.getFullYear() + '-' + (dropOffTime.getMonth()+1) + '-' + dropOffTime.getDate()
+        }
+
         fields.style.display = "none";
         criteria = JSON.stringify({
             "apiKey": apiKey,
