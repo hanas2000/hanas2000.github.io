@@ -167,7 +167,7 @@ function rent(carId) {
 }
 
 function JSalert(){
-    swal("Congrats!", ", You rent a car!", "success");
+    swal("Congrats!", "You rent a car!", "success");
 }
 
 function logOut() {
