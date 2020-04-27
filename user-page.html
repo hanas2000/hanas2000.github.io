@@ -12,10 +12,10 @@
     <!-- Main css -->
     <link rel="stylesheet" href="css/user.css">
 </head>
-<body class="bg">
+<body class="bg" onload="onLoad()">
         <nav class="navbar navbar-expand-md bg-dark navbar-dark">
 
-            <a class="navbar-brand" href="#">Rentik</a>
+            <a class="navbar-brand" href="main-menu.html">Rentik</a>
  
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#x" >
                 <span class="navbar-toggler-icon"></span>
@@ -26,8 +26,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="main-menu.html">Main menu</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Log out</a>
+                    <li class="nav-item logOut">
+                        <a class="nav-link" onclick="logOut()" href="login.html">Log out</a>
                     </li>
                 </ul>
             </div>
@@ -36,35 +36,38 @@
         <div class="row">
             <div class = "main">
                 <div class = "first-block row">
-                    <div class = "photo col-xs-12 col-md-4 col-sm-4">
-                        <img src = "images/images.png"/>
+                    <div class = "col-xs-12 col-md-4 col-sm-4">
+                        <div class = "photo">
+                            <input type="file" id="photo_input" onchange="readURL(this);">
+                            <img src = "images/images.png"/>
+                        </div>
                     </div>
                     <div class="user-info container col-xs-12 col-sm-8 col-md-8">
-                        <h2 class="name-surname">Yura Khanas</h2>
+                        <h2 id="name"></h2>
                         <div class="row">
                                 <h4 class="col-6">№ passport</h4>
-                                <h4 class="col-6 db-info password">ht1426hd98</h4>
+                                <h4 class="col-6 db-info" id="passport"></h4>
 
                                 <h4 class="col-6">№ driver licence</h4>
-                                <h4 class="col-6 db-info driver-licence">ht1426hd98</h4>
+                                <h4 class="col-6 db-info" id="driver-licence"></h4>
 
                                 <h4 class="col-6">E-mail</h4>
-                                <h4 class="col-6 db-info e-mail">yura @gmail. com</h4>
+                                <h4 class="col-6 db-info" id="e-mail"></h4>
 
                                 <h4 class="col-6">Date Of Birth.</h4>
-                                <h4 class="col-6 db-info date-of-birth">22.12.2000</h4>
-
-                                <h4 class="col-6">Nationality</h4>
-                                <h4 class="col-6 db-info nationality">Ukrainian</h4>
+                                <h4 class="col-6 db-info" id="date-of-birth"></h4>
 
                                 <h4 class="col-6">City</h4>
-                                <h4 class="col-6 db-info city">Lviv</h4>
+                                <h4 class="col-6 db-info" id="city"></h4>
 
                                 <h4 class="col-6">Credit card</h4>
-                                <h4 class="col-6 db-info city">2574 8957 4984 5898</h4>
+                                <h4 class="col-6 db-info" id="creditCard"></h4>
 
-                                <h4 class="col-6">Rented car</h4>
-                                <h4 class="col-6 db-info city">Audi Q7</h4>
+                                <h4 class="col-6">Phone number</h4>
+                                <h4 class="col-6 db-info" id="phone-number"></h4>
+
+                                <h4 class="col-6" id="car-title">Rented car</h4>
+                                <h4 class="col-6 db-info" id="car"></h4>
                         </div>
                         <button type="submit" class="btn btn-success btn-block edit" onclick="edit_user()">Edit</button>
                     </div>
@@ -88,9 +91,15 @@
         <div class="row">
             <div class="col-lg-4 col-md-3 col-sm-2 col-xs-12"></div>
             <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
-                <form class="form-container">
+                <form class="form-container" onsubmit="return false;">
                     <div class="exit">
-                        <button type="submit" class="btn btn-primary" onclick="close_edit_user()" >✖</button>
+                        <button class="btn btn-primary" onclick="closeEditUser()" >✖</button>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="inputSurname" placeholder="Surname">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="inputPassport" placeholder="Passport">
@@ -99,16 +108,16 @@
                         <input type="text" class="form-control" id="inputDriverLicence" placeholder="Driver Licence">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="inputDateOfBirthday" placeholder="Date of birthday">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="inputNationality" placeholder="Nationality">
+                        <input type="text" class="form-control" id="inputDateOfBirthday" placeholder="Date of birthday(yyyy-mm-dd)">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="inputCity" placeholder="City">
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <input type="text" class="form-control" id="inputCard" placeholder="Credit-card">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="inputPhone" placeholder="Phone number">
                     </div>
                     <div class="form-group">
                         <input type="password" class="form-control" id="inputPassword" placeholder="Password">
@@ -116,23 +125,15 @@
                     <div class="form-group">
                         <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Repeat password">
                     </div>
-                    <button type="submit" class="btn btn-success btn-block">Save</button>
+                    <p id="fields-empty">All fields must be filled in.</p>
+                    <button type="submit" class="btn btn-success btn-block" onclick="updateUser()">Save</button>
                 </form>
             </div>
             <div class="col-lg-4 col-md-3 col-sm-2 col-xs-12"></div>
         </div>
     </div>
 
-    <script type="text/javascript">
-        function edit_user()
-        {
-           document.getElementById("fill").style.display = "block";    
-        }
-        function change_edit_user()
-        {
-           document.getElementById("fill").style.display = "none";    
-        }
-    </script>
+    <script src="./js/user-page.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

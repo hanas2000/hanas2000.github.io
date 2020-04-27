@@ -46,3 +46,25 @@ h2 {
     position: relative;
     text-align: center;
 }
+
+.errorEmail{
+    text-align: justify;
+    display: none;
+    font-weight:bold;
+    color: red;
+}
+
+.errorPassword{
+    text-align: justify;
+    display: none;
+    font-weight:bold;
+    color: red;
+}
+
+.exists{
+    padding-top:20px;
+    text-align: center;
+    display: none;
+    font-weight:bold;
+    color: red;
+}

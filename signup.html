@@ -16,18 +16,22 @@
         <div class="row">
             <div class="col-lg-4 col-md-3 col-sm-2 col-xs-12"></div>
             <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
-                <form class="form-container">
+                <form class="form-container" onsubmit="return false;">
                     <h2 class="form-title">Sign Up</h2>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
+                        <input type="email" id="email" class="form-control" id="exampleInputEmail" placeholder="Email">
+                        <p class="errorEmail">Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'.</p>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                        <input type="password" id="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                        <p class="errorPassword">Only latin letter, size minimum 8 maximum 64, at least one uppercase letter, one lowercase letter and one number and repeat password should be equals too this password.</p>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="exampleInputRepeatPassword" placeholder="Repeat password">
+                        <input type="password" id="repeatPassword" class="form-control" id="exampleInputRepeatPassword" placeholder="Repeat password">
+                        <p class="errorPassword">Only latin letter, size minimum 8 maximum 64, at least one uppercase letter, one lowercase letter and one number and password should be equals too this repeat password.</p>
                     </div>
-                    <button type="submit" class="btn btn-success btn-block">Sign up</button>
+                    <button type="submit" class="btn btn-success btn-block" onclick="signUp()">Sign up</button>
+                    <p class="exists">User already exists</p>
                     <div class="link">
                         <span>Already have an account? </span><a href="login.html" class="signup-link">Sign in</a>
                     </div>
@@ -36,5 +40,6 @@
             <div class="col-lg-4 col-md-3 col-sm-2 col-xs-12"></div>
         </div>
     </div>
+<script type="text/javascript" src="js/signup.js"></script>
 </body>
 </html>
