@@ -263,9 +263,13 @@ function edit_user() {
 
 function closeEditUser() {
     var isNotNull = apiKey != null && newCity.value != "" && newCard.value != "" && newBirthday.value != "" && newDriverLicence.value != "" && json.email != "" && newName.value != "" && newPassport.value != "" && newPassword.value != "" && newPhone.value != "" && newSurname.value != "";
+    var fields = document.getElementById("fields-empty");
 
     if (isNotNull) {
+        fields.style.display = "none";
         document.getElementById("fill").style.display = "none";
+    }else{
+        fields.style.display = "block";
     }
 }
 
